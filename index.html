@@ -12,7 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
     <style>
-        /* Variables de Tema - Sistema Obsidian / Minimalista */
         :root {
             --transition-speed: 0.4s;
         }
@@ -41,7 +40,6 @@
             --bg-gradient: radial-gradient(circle at top, #ffffff 0%, #f9fafb 100%);
         }
 
-        /* Estilos Base */
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg-gradient);
@@ -86,7 +84,6 @@
             border-color: var(--text-main);
         }
 
-        /* Logo Nativo SVG Animado */
         .logo-svg {
             width: 40px;
             height: 40px;
@@ -95,12 +92,10 @@
             transition: stroke var(--transition-speed);
         }
 
-        /* Ocultar elementos antes de animar */
         .stagger-item {
             opacity: 0;
         }
 
-        /* Detalles (FAQ) */
         details > summary {
             list-style: none;
             cursor: pointer;
@@ -286,7 +281,7 @@
 
         <section id="portafolio" class="py-20 border-t animate-section" style="border-color: var(--border-color)">
             <h2 class="text-3xl font-bold mb-12 text-center stagger-item">Proyectos Destacados</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="eclipc-card rounded-xl overflow-hidden stagger-item flex flex-col">
                     <div class="h-48 bg-gray-800 flex items-center justify-center border-b" style="border-color: var(--border-color)">
                         <span class="text-4xl">📦</span> </div>
@@ -303,6 +298,25 @@
                         <a href="#" class="btn-secondary w-full py-2 rounded-lg text-center text-sm font-medium">Ver detalles</a>
                     </div>
                 </div>
+
+                <div class="eclipc-card rounded-xl overflow-hidden stagger-item flex flex-col">
+                    <div class="h-48 bg-gray-800 flex items-center justify-center border-b" style="border-color: var(--border-color)">
+                        <span class="text-4xl">📅</span> </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2">Eclipc Bookings</h3>
+                        <p class="text-sm mb-4 flex-grow" style="color: var(--text-muted)">
+                            <strong style="color: var(--text-main)">Problema resuelto:</strong> Automatización de agenda, reducción de inasistencias y gestión de reservas 24/7.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs px-2 py-1 rounded border" style="border-color: var(--border-color)">HTML/CSS</span>
+                            <span class="text-xs px-2 py-1 rounded border" style="border-color: var(--border-color)">Tailwind</span>
+                            <span class="text-xs px-2 py-1 rounded border" style="border-color: var(--border-color)">JS</span>
+                            <span class="text-xs px-2 py-1 rounded border" style="border-color: var(--border-color)">Supabase</span>
+                        </div>
+                        <a href="sistema-citas.html" class="btn-secondary w-full py-2 rounded-lg text-center text-sm font-medium">Ver detalles</a>
+                    </div>
+                </div>
+
                 <div class="eclipc-card rounded-xl overflow-hidden stagger-item flex flex-col border-dashed items-center justify-center p-6 text-center opacity-70">
                     <span class="text-3xl mb-2">🚀</span>
                     <h3 class="text-lg font-bold mb-1">Tu proyecto aquí</h3>
@@ -401,7 +415,6 @@
     </footer>
 
     <script>
-        // 1. Lógica del Modo Claro/Oscuro
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
@@ -411,7 +424,6 @@
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             
-            // Cambiar ícono y animarlo levemente
             themeIcon.textContent = newTheme === 'dark' ? '🌓' : '☀️';
             anime({
                 targets: themeToggle,
@@ -421,37 +433,32 @@
             });
         });
 
-        // 2. Animaciones con Anime.js + Intersection Observer
         document.addEventListener('DOMContentLoaded', () => {
-            // Configurar el observador para disparar animaciones al hacer scroll
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.15 // Dispara cuando el 15% de la sección es visible
+                threshold: 0.15 
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Encontrar los elementos internos a animar
                         const targets = entry.target.querySelectorAll('.stagger-item');
                         
                         anime({
                             targets: targets,
-                            translateY: [30, 0], // Sube 30px a su posición original
-                            opacity: [0, 1],     // De invisible a visible
-                            delay: anime.stagger(150), // 150ms entre cada elemento (efecto cascada)
+                            translateY: [30, 0], 
+                            opacity: [0, 1],     
+                            delay: anime.stagger(150), 
                             duration: 800,
                             easing: 'easeOutCubic'
                         });
 
-                        // Dejar de observar una vez animado
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
-            // Seleccionar todas las secciones que deben animarse
             const sections = document.querySelectorAll('.animate-section');
             sections.forEach(section => {
                 observer.observe(section);
