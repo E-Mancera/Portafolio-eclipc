@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eclipc Bookings | Detalle del Proyecto</title>
+    <title>Eclipc Bookings | Neumorphic Demo</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script>
         tailwind.config = {
@@ -27,104 +27,208 @@
 <body class="antialiased min-h-screen flex flex-col selection:bg-neutral-700 selection:text-white">
 
     <nav class="sticky top-0 z-50 py-4 px-6">
-        <div class="max-w-5xl mx-auto flex justify-between items-center p-5 neu-outset rounded-4xl">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6 p-5 neu-outset rounded-4xl">
             <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-full neu-outset flex items-center justify-center text-white font-bold text-lg">e</div>
-                <span class="font-semibold tracking-wide text-lg">eclipc.dev</span>
+                <div class="w-10 h-10 rounded-full neu-outset flex items-center justify-center text-white font-bold text-lg">B</div>
+                <span class="font-semibold tracking-wide text-lg">Barbería Demo</span>
             </div>
-            <a href="index.html" class="px-6 py-2.5 text-sm rounded-full transition-all duration-300 ease-in-out font-medium neu-sm-outset text-text-muted hover:text-white">
-                Volver al Portafolio
-            </a>
+            
+            <div class="flex gap-2 neu-inset p-2 rounded-full">
+                <button onclick="switchTab('client')" id="btn-client" class="px-6 py-2.5 text-sm rounded-full transition-all duration-300 ease-in-out font-medium neu-outset text-white">
+                    Vista Cliente
+                </button>
+                <button onclick="switchTab('admin')" id="btn-admin" class="px-6 py-2.5 text-sm rounded-full transition-all duration-300 ease-in-out text-text-muted hover:text-white bg-transparent">
+                    Vista Administrador
+                </button>
+            </div>
         </div>
     </nav>
 
-    <main class="flex-grow p-6 md:p-10 max-w-5xl mx-auto w-full space-y-16 animate-fade-in">
+    <main class="flex-grow p-6 md:p-10 max-w-5xl mx-auto w-full">
 
-        <section class="text-center space-y-6 mt-8">
-            <div class="inline-block px-4 py-1.5 neu-sm-inset rounded-full text-xs font-semibold text-text-muted uppercase tracking-widest mb-2">
-                Caso de Estudio
+        <section id="view-client" class="space-y-12 animate-fade-in">
+            <div class="text-center space-y-3 mb-12">
+                <h1 class="text-3xl md:text-5xl font-extrabold tracking-tighter text-white">Reserva tu espacio</h1>
+                <p class="text-text-muted text-lg max-w-lg mx-auto">Selecciona tu servicio y horario en nuestra interfaz Soft UI.</p>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-white">Eclipc Bookings</h1>
-            <p class="text-text-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                El sistema de reservas online definitivo. Diseñado para automatizar la agenda de negocios, reducir inasistencias y escalar ingresos sin depender de procesos manuales.
-            </p>
-        </section>
 
-        <section class="w-full">
-            <img src="https://placehold.co/1200x600/1a1e24/e0e6ed?text=Mockup+Visual+del+Dashboard+y+Calendario" alt="Vista previa del sistema" class="w-full rounded-4xl neu-outset object-cover h-[300px] md:h-[500px]">
-        </section>
+            <div class="grid md:grid-cols-2 gap-10">
+                
+                <div class="neu-outset p-8 rounded-4xl">
+                    <h2 class="text-xl font-semibold mb-8 flex items-center gap-3 text-white">
+                        <span class="w-8 h-8 rounded-full neu-inset flex items-center justify-center text-sm text-text-muted">1</span> 
+                        Elige un servicio
+                    </h2>
+                    
+                    <div class="space-y-5">
+                        <button class="w-full text-left p-6 rounded-3xl neu-sm-outset hover:scale-[1.02] transition-transform flex justify-between items-center group">
+                            <div>
+                                <p class="font-medium text-text-muted group-hover:text-white transition-colors">Corte Clásico</p>
+                                <p class="text-xs text-text-muted mt-1">45 min</p>
+                            </div>
+                            <span class="font-bold text-text-muted group-hover:text-white">$350</span>
+                        </button>
+                        
+                        <button class="w-full text-left p-6 rounded-3xl neu-sm-inset flex justify-between items-center group relative overflow-hidden">
+                            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-white rounded-r-full"></div>
+                            <div class="pl-4">
+                                <p class="font-semibold text-white">Corte + Barba (Ritual)</p>
+                                <p class="text-xs text-text-muted mt-1">1 hr 15 min</p>
+                            </div>
+                            <span class="font-bold text-white">$450</span>
+                        </button>
 
-        <section class="grid md:grid-cols-2 gap-10">
-            <div class="neu-outset p-10 rounded-4xl space-y-5">
-                <div class="w-12 h-12 rounded-full neu-inset flex items-center justify-center text-xl mb-6">❌</div>
-                <h2 class="text-2xl font-bold text-white">El Problema</h2>
-                <p class="text-text-muted leading-relaxed">
-                    Negocios como barberías, estéticas y consultorios pierden miles de pesos mensuales debido a inasistencias. La administración manual en agendas de papel o Excel genera cuellos de botella, errores humanos y una mala experiencia para el cliente que debe esperar horas para confirmar si hay un espacio disponible.
-                </p>
-            </div>
-            <div class="neu-outset p-10 rounded-4xl space-y-5">
-                <div class="w-12 h-12 rounded-full neu-inset flex items-center justify-center text-xl mb-6">✅</div>
-                <h2 class="text-2xl font-bold text-white">La Solución</h2>
-                <p class="text-text-muted leading-relaxed">
-                    Un sistema web 24/7 de alta disponibilidad. Permite a los clientes autogestionar sus reservas desde cualquier dispositivo. El sistema envía recordatorios automáticos y proporciona al dueño un panel de control con métricas financieras e inventario de citas en tiempo real.
-                </p>
-            </div>
-        </section>
-
-        <section class="space-y-10">
-            <h3 class="text-3xl font-bold text-center text-white">Características Principales</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="neu-sm-outset p-8 rounded-3xl text-center hover:scale-105 transition-transform">
-                    <img src="https://placehold.co/400x300/22272f/e0e6ed?text=Flujo+de+Reservas" alt="Calendario" class="w-full h-32 object-cover rounded-2xl neu-sm-inset mb-6">
-                    <h4 class="text-lg font-semibold text-white mb-2">Autogestión</h4>
-                    <p class="text-sm text-text-muted">Calendario interactivo y selección de servicios sin fricción para el usuario final.</p>
+                        <button class="w-full text-left p-6 rounded-3xl neu-sm-outset hover:scale-[1.02] transition-transform flex justify-between items-center group">
+                            <div>
+                                <p class="font-medium text-text-muted group-hover:text-white transition-colors">Arreglo de Barba</p>
+                                <p class="text-xs text-text-muted mt-1">30 min</p>
+                            </div>
+                            <span class="font-bold text-text-muted group-hover:text-white">$200</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="neu-sm-outset p-8 rounded-3xl text-center hover:scale-105 transition-transform">
-                    <img src="https://placehold.co/400x300/22272f/e0e6ed?text=Sistema+de+Recordatorios" alt="Notificaciones" class="w-full h-32 object-cover rounded-2xl neu-sm-inset mb-6">
-                    <h4 class="text-lg font-semibold text-white mb-2">Recordatorios Smart</h4>
-                    <p class="text-sm text-text-muted">Notificaciones automatizadas 24 horas antes para garantizar el 100% de asistencia.</p>
-                </div>
-                <div class="neu-sm-outset p-8 rounded-3xl text-center hover:scale-105 transition-transform">
-                    <img src="https://placehold.co/400x300/22272f/e0e6ed?text=Panel+Administrativo" alt="Dashboard" class="w-full h-32 object-cover rounded-2xl neu-sm-inset mb-6">
-                    <h4 class="text-lg font-semibold text-white mb-2">Métricas Reales</h4>
-                    <p class="text-sm text-text-muted">Panel administrativo protegido con ingresos estimados, control de estado y reportes.</p>
+
+                <div class="neu-outset p-8 rounded-4xl">
+                    <h2 class="text-xl font-semibold mb-8 flex items-center gap-3 text-white">
+                        <span class="w-8 h-8 rounded-full neu-inset flex items-center justify-center text-sm text-text-muted">2</span> 
+                        Selecciona horario
+                    </h2>
+                    
+                    <div class="grid grid-cols-5 gap-3 mb-8">
+                        <div class="text-center p-3 rounded-2xl neu-sm-outset opacity-40 cursor-not-allowed">
+                            <p class="text-xs text-text-muted">Mar</p>
+                            <p class="font-bold text-text-muted">10</p>
+                        </div>
+                        <div class="text-center p-3 rounded-2xl neu-sm-inset">
+                            <p class="text-xs text-text-muted">Mié</p>
+                            <p class="font-bold text-white">11</p>
+                        </div>
+                        <div class="text-center p-3 rounded-2xl neu-sm-outset hover:scale-105 transition-transform cursor-pointer">
+                            <p class="text-xs text-text-muted">Jue</p>
+                            <p class="font-bold text-text-muted hover:text-white">12</p>
+                        </div>
+                        <div class="text-center p-3 rounded-2xl neu-sm-outset hover:scale-105 transition-transform cursor-pointer">
+                            <p class="text-xs text-text-muted">Vie</p>
+                            <p class="font-bold text-text-muted hover:text-white">13</p>
+                        </div>
+                        <div class="text-center p-3 rounded-2xl neu-sm-outset hover:scale-105 transition-transform cursor-pointer">
+                            <p class="text-xs text-text-muted">Sáb</p>
+                            <p class="font-bold text-text-muted hover:text-white">14</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 mb-10">
+                        <button class="p-3 text-sm rounded-xl neu-sm-outset text-text-muted hover:text-white transition-colors">10:00 AM</button>
+                        <button class="p-3 text-sm rounded-xl neu-sm-outset text-text-muted hover:text-white transition-colors">11:30 AM</button>
+                        <button class="p-3 text-sm rounded-xl neu-sm-inset text-neutral-600 line-through cursor-not-allowed opacity-50">01:00 PM</button>
+                        <button class="p-3 text-sm rounded-xl neu-sm-inset text-white font-semibold">04:30 PM</button>
+                        <button class="p-3 text-sm rounded-xl neu-sm-outset text-text-muted hover:text-white transition-colors">06:00 PM</button>
+                        <button class="p-3 text-sm rounded-xl neu-sm-outset text-text-muted hover:text-white transition-colors">07:15 PM</button>
+                    </div>
+
+                    <button class="w-full neu-btn-primary font-bold py-4 rounded-full text-lg transition-all" onclick="alert('Esta es una demo neumórfica.')">
+                        Confirmar Reserva • $450
+                    </button>
                 </div>
             </div>
         </section>
 
-        <section class="neu-outset p-10 rounded-4xl text-center space-y-6">
-            <h3 class="text-2xl font-bold text-white">Arquitectura Tecnológica</h3>
-            <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <span class="px-5 py-2 neu-sm-inset text-text-muted font-medium rounded-full text-sm">HTML5 / CSS3</span>
-                <span class="px-5 py-2 neu-sm-inset text-text-muted font-medium rounded-full text-sm">Tailwind CSS</span>
-                <span class="px-5 py-2 neu-sm-inset text-text-muted font-medium rounded-full text-sm">JavaScript (ES6+)</span>
-                <span class="px-5 py-2 neu-sm-inset text-text-muted font-medium rounded-full text-sm">Node.js</span>
-                <span class="px-5 py-2 neu-sm-inset text-text-muted font-medium rounded-full text-sm">Supabase</span>
+        <section id="view-admin" class="hidden space-y-10 animate-fade-in">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 p-6 neu-outset rounded-3xl">
+                <div>
+                    <h1 class="text-3xl font-extrabold tracking-tight text-white">Panel de Control</h1>
+                    <p class="text-text-muted mt-1">Resumen del día: Miércoles, 11 de Agosto</p>
+                </div>
+                <button class="px-6 py-3 neu-sm-outset hover:scale-105 rounded-xl text-sm font-medium transition-all text-text-muted hover:text-white">
+                    Descargar Reporte
+                </button>
             </div>
-        </section>
 
-        <section class="pt-10 pb-16 border-t border-base-dark text-center space-y-8">
-            <h2 class="text-3xl font-extrabold text-white">¿Listo para verlo en acción?</h2>
-            <p class="text-text-muted max-w-xl mx-auto">
-                Explora la interfaz de manera interactiva o ponte en contacto con nosotros para cotizar la implementación de este sistema en tu negocio.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
-                <a href="index.html" class="w-full sm:w-auto px-10 py-4 neu-btn-primary font-bold rounded-full text-lg text-center">
-                    Probar Demo
-                </a>
-                <a href="https://wa.me/524614014643?text=Hola%20Eclipc,%20vengo%20de%20su%20portafolio.%20Me%20interesa%20desarrollar%20un%20sistema%20de%20citas%20similar%20a%20Eclipc%20Bookings%20para%20mi%20negocio." target="_blank" class="w-full sm:w-auto px-10 py-4 neu-sm-outset hover:scale-105 font-bold text-white rounded-full text-lg transition-transform text-center flex justify-center items-center gap-3">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Solicitar un proyecto similar
-                </a>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="neu-outset p-6 rounded-3xl text-center">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-widest">Citas Hoy</p>
+                    <p class="text-4xl font-extrabold mt-3 text-white">14</p>
+                </div>
+                <div class="neu-outset p-6 rounded-3xl text-center">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-widest">Ingresos Est.</p>
+                    <p class="text-4xl font-extrabold mt-3 text-green-400">$5,350</p>
+                </div>
+                <div class="neu-outset p-6 rounded-3xl text-center">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-widest">Nuevos Clientes</p>
+                    <p class="text-4xl font-extrabold mt-3 text-white">3</p>
+                </div>
+                <div class="neu-outset p-6 rounded-3xl text-center">
+                    <p class="text-text-muted text-xs font-medium uppercase tracking-widest">Asistencia</p>
+                    <p class="text-4xl font-extrabold mt-3 text-white">100%</p>
+                </div>
+            </div>
+
+            <div class="neu-outset rounded-4xl overflow-hidden p-3">
+                <div class="p-6 flex justify-between items-center border-b border-base-dark">
+                    <h2 class="text-base font-semibold uppercase tracking-wider text-text-muted">Agenda del Día</h2>
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                </div>
+                
+                <div class="space-y-3 p-3">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-3xl neu-sm-inset opacity-60">
+                        <div class="flex items-center gap-5">
+                            <div class="text-right w-24">
+                                <p class="font-bold text-text-muted">10:00 AM</p>
+                            </div>
+                            <div class="w-px h-10 neu-inset"></div>
+                            <div>
+                                <p class="font-medium text-text-muted">Carlos Ruiz</p>
+                                <p class="text-xs text-neutral-600 mt-0.5">Corte Clásico • 45m</p>
+                            </div>
+                        </div>
+                        <span class="mt-4 md:mt-0 px-4 py-1.5 neu-sm-outset text-neutral-600 rounded-full text-xs font-medium">Completado</span>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-3xl neu-sm-outset">
+                        <div class="flex items-center gap-5">
+                            <div class="text-right w-24">
+                                <p class="font-bold text-white text-lg">04:30 PM</p>
+                            </div>
+                            <div class="w-1 h-12 bg-white rounded-full"></div>
+                            <div>
+                                <p class="font-semibold text-white text-lg">Alejandro Gómez</p>
+                                <p class="text-sm text-text-muted mt-0.5">Corte + Barba • 1h 15m</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex gap-3">
+                            <button class="px-4 py-2 neu-sm-outset hover:scale-105 rounded-lg text-xs font-medium transition-all text-text-muted hover:text-white">Cancelar</button>
+                            <span class="px-4 py-2 bg-green-950 text-green-300 rounded-lg text-xs font-semibold flex items-center">
+                                Confirmada
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-3xl neu-sm-outset">
+                        <div class="flex items-center gap-5">
+                            <div class="text-right w-24">
+                                <p class="font-bold text-text-muted">06:00 PM</p>
+                            </div>
+                            <div class="w-px h-10 neu-inset"></div>
+                            <div>
+                                <p class="font-medium text-text-muted">Fernando López</p>
+                                <p class="text-xs text-text-muted mt-0.5">Arreglo de Barba • 30m</p>
+                            </div>
+                        </div>
+                        <span class="mt-4 md:mt-0 px-4 py-2 bg-yellow-950 text-yellow-300 rounded-lg text-xs font-semibold">Pendiente de pago</span>
+                    </div>
+                </div>
             </div>
         </section>
 
     </main>
 
     <footer class="py-8 text-center px-6">
-        <p class="text-text-muted text-sm">eclipc.dev © 2026</p>
+        <p class="text-text-muted text-sm">Eclipc Bookings © 2026</p>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
