@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECLIPC STUDIO // Streetwear & Apparel</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="logo">ECLIPC<span>.STUDIO</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#products">Colección</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            <button id="cart-btn" class="cart-icon-btn">
+                🛒 <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <span class="badge">NUEVA COLECCIÓN 2026</span>
+            <h1>URBAN ARCHIVE // DROP 01</h1>
+            <p>Diseño conceptual, cortes oversize y materiales de alta calidad para la cultura urbana.</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn primary-btn">Explorar Drop</a>
+                <button id="open-size-guide" class="btn secondary-btn">Guía de Tallas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Products Section -->
+    <section id="products" class="products-section">
+        <div class="section-header">
+            <h2>NUESTROS PRODUCTOS</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="hoodies">Hoodies</button>
+                <button class="filter-btn" data-category="tees">Camisetas</button>
+                <button class="filter-btn" data-category="pants">Pantalones</button>
+                <button class="filter-btn" data-category="acc">Accesorios</button>
+            </div>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+            <!-- Product cards will be dynamic JS rendered -->
+        </div>
+    </section>
+
+    <!-- Slide-out Cart Drawer -->
+    <aside id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>TU CARRITO (<span id="cart-items-qty">0</span>)</h3>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <!-- Cart items inserted by JS -->
+            <p class="empty-cart-msg">Tu carrito está vacío actualmente.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>TOTAL:</span>
+                <span id="cart-total-price">$0.00 MXN</span>
+            </div>
+            <button id="checkout-btn" class="btn primary-btn full-width">Proceder al Pago</button>
+        </div>
+    </aside>
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <!-- Size Guide Modal -->
+    <div id="size-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h3>Guía de Tallas (Oversize Fit)</h3>
+            <p>Nuestras prendas tienen un corte holgado holandés. Te recomendamos tu talla habitual para un fit relajado.</p>
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Talla</th>
+                        <th>Pecho (cm)</th>
+                        <th>Largo (cm)</th>
+                        <th>Hombro (cm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>S</td><td>112</td><td>70</td><td>54</td></tr>
+                    <tr><td>M</td><td>118</td><td>73</td><td>56</td></tr>
+                    <tr><td>L</td><td>124</td><td>76</td><td>58</td></tr>
+                    <tr><td>XL</td><td>130</td><td>79</td><td>60</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Producto agregado al carrito</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="logo">ECLIPC<span>.STUDIO</span></div>
+                <p>Desarrollado como prototipo interactivo para portafolio por el equipo de Eclipc.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#products">Catálogo</a></li>
+                    <li><a href="https://eclipc.space" target="_blank">Eclipc Agency</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Suscripción VIP</h4>
+                <p>Recibe acceso anticipado a los próximos drops.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+                    <input type="email" placeholder="Tu email..." required>
+                    <button type="submit" class="btn primary-btn">Unirme</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ECLIPC STUDIO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="java/script.js"></script>
+</body>
+</html>
